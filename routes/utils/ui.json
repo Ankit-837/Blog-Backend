@@ -1,0 +1,126 @@
+{
+  "info": {
+    "name": "Blog Post APIs",
+    "_postman_id": "unique-id-generated-here",
+    "description": "Collection to test Blog Post CRUD APIs with Auth middleware.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Posts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/posts",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts"]
+        }
+      }
+    },
+    {
+      "name": "Get Post By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/posts/{{postId}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts", "{{postId}}"]
+        }
+      }
+    },
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Test Post Title\",\n  \"authorName\": \"Ankit\",\n  \"content\": \"This is the content of the test post.\",\n  \"category\": [\"tech\", \"programming\"],\n  \"imageUrl\": \"https://example.com/image.jpg\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/posts",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts"]
+        }
+      }
+    },
+    {
+      "name": "Update Post",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Post Title\",\n  \"content\": \"Updated content here.\",\n  \"category\": [\"tech\"],\n  \"imageUrl\": \"https://example.com/updated.jpg\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/posts/{{postId}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts", "{{postId}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Post",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/posts/{{postId}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts", "{{postId}}"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "postId",
+      "value": ""
+    }
+  ]
+}
