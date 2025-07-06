@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://blog-frontend-six-henna.vercel.app/"],
+    origin: ["https://blog-frontend-qikl.vercel.app/"],
     credentials: true,
   })
 );
