@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://blog-frontend-qikl.vercel.app/"],
+    origin: ["https://blog-front-five-tau.vercel.app/"],
     credentials: true,
   })
 );
